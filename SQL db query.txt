@@ -1,0 +1,151 @@
+
+
+ Database: `librarymanagementsystem01`
+
+
+
+DROP TABLE IF EXISTS `announcements`;
+CREATE TABLE IF NOT EXISTS `announcements` (
+  `notice_id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`notice_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+INSERT INTO `announcements` (`notice_id`, `title`, `content`, `date`) VALUES
+(3, 'library closed for special day', 'library new building opening on 31st august,library closed', '2025-08-29'),
+(2, 'library closed', ' library closed', '2025-08-08'),
+(4, 'new memberships open', 'new library memeberships are open for students and staffs special discount on 25th', '2025-08-25');
+
+
+
+DROP TABLE IF EXISTS `books`;
+CREATE TABLE IF NOT EXISTS `books` (
+  `book_id` varchar(20) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `publisher` varchar(255) DEFAULT NULL,
+  `publication_year` year DEFAULT NULL,
+  `total_copies` int NOT NULL DEFAULT '0',
+  `available_copies` int NOT NULL DEFAULT '0',
+  `category` varchar(100) DEFAULT NULL,
+  `status` enum('Available','Unavailable','Reserved') DEFAULT 'Available',
+  PRIMARY KEY (`book_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+INSERT INTO `books` (`book_id`, `title`, `author`, `publisher`, `publication_year`, `total_copies`, `available_copies`, `category`, `status`) VALUES
+('B001', '1984', 'George Orwell', 'Secker & Warburg', '1950', 6, 4, 'Dystopian', ''),
+('B002', 'To Kill a Mockingbird', 'Harper Lee', 'J.B. Lippincott & Co.', '1960', 8, 5, 'Classic', 'Available'),
+('B003', 'The Great Gatsby', 'F. Scott Fitzgerald', 'Scribner', '1925', 6, 0, 'Classic', ''),
+('B004', 'Steve Jobs', 'Walter Isaacson', 'Simon & Schuster', '2011', 5, 3, 'Biography', 'Available'),
+('B005', 'A Brief History of Time', 'Stephen Hawking', 'Bantam Books', '1988', 7, 7, 'Science', 'Available'),
+('B006', 'The Catcher in the Rye', 'J.D. Salinger', 'Little, Brown and Company', '1951', 9, 9, 'Fiction', 'Available'),
+('B016', 'tt', 'tt', 'tt', '2000', 3, 0, 'Dystopian', ''),
+('B008', 'The Martian', 'Andy Weir', 'Crown Publishing Group', '2014', 10, 8, 'Science Fiction', 'Available'),
+('B009', 'Clean Code', 'Robert C. Martin', 'Prentice Hall', '2008', 3, 2, 'Technology', 'Available'),
+('B010', 'Brave New World', 'Aldous Huxley', 'Chatto & Windus', '1932', 7, 7, 'Dystopian', 'Available'),
+('B011', 'jsjs', 'ssdsddsds', 'sdsd', '2001', 4, 3, 'Classic', 'Available'),
+('B014', 'saas', 'aas', 'saas', '2001', 2, 2, 'Fiction', 'Available'),
+('B015', 'oliver twist', 'charles dickens', 'Richard Bentley', '0000', 3, 2, 'Fiction', '');
+
+
+
+DROP TABLE IF EXISTS `borrowings`;
+CREATE TABLE IF NOT EXISTS `borrowings` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(50) NOT NULL,
+  `book_id` varchar(20) NOT NULL,
+  `borrow_date` date NOT NULL,
+  `due_date` date NOT NULL,
+  `return_date` date DEFAULT NULL,
+  `status` enum('borrowed','returned','damaged','overdue') NOT NULL DEFAULT 'borrowed',
+  PRIMARY KEY (`id`),
+  KEY `book_id` (`book_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+INSERT INTO `borrowings` (`id`, `user_id`, `book_id`, `borrow_date`, `due_date`, `return_date`, `status`) VALUES
+(2, 'stud001', 'B011', '2025-08-15', '2025-08-19', '2025-08-13', 'damaged'),
+(3, 'staff102', 'B02', '2025-08-06', '2025-08-15', '2025-08-15', 'borrowed'),
+(4, 'staff102', 'B002', '2025-08-12', '2025-08-16', '2025-08-16', 'borrowed');
+
+
+DROP TABLE IF EXISTS `librarian`;
+CREATE TABLE IF NOT EXISTS `librarian` (
+  `employee_id` varchar(20) NOT NULL,
+  `full_name` varchar(100) DEFAULT NULL,
+  `hire_date` date DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `phone_number` varchar(20) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`employee_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+INSERT INTO `librarian` (`employee_id`, `full_name`, `hire_date`, `email`, `phone_number`, `password`) VALUES
+('lib1', 'Jane Doe\r\n', '2022-08-17', 'jane.doe@example.com', '0292992929', 'lib@1');
+
+
+
+DROP TABLE IF EXISTS `notifications`;
+CREATE TABLE IF NOT EXISTS `notifications` (
+  `notification_id` int NOT NULL AUTO_INCREMENT,
+  `employee_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  `is_read` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`notification_id`),
+  KEY `employee_id` (`employee_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+INSERT INTO `notifications` (`notification_id`, `employee_id`, `user_id`, `type`, `message`, `is_read`, `created_at`) VALUES
+(2, 0, 0, 'feedback', 'Feedback from user #staff102: library books a worthy', 1, '2025-08-10 18:50:05'),
+(3, 0, 0, 'feedback', 'Feedback from user #staff102: library has so many book categories', 1, '2025-08-23 06:09:42');
+
+
+
+DROP TABLE IF EXISTS `reservations`;
+CREATE TABLE IF NOT EXISTS `reservations` (
+  `reservation_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `book_id` int NOT NULL,
+  `reservation_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `expiry_date` datetime NOT NULL,
+  `status` enum('pending','fulfilled','cancelled') DEFAULT 'pending',
+  PRIMARY KEY (`reservation_id`),
+  KEY `user_id` (`user_id`),
+  KEY `book_id` (`book_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` varchar(20) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `registered_date` date NOT NULL,
+  `role` enum('student','staff') NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `phone`, `registered_date`, `role`, `password`) VALUES
+('staff102', 'kalam', 'abdul', 'kalamabdul@gmail.com', '0987654678', '2025-08-21', 'staff', 'kalam@124'),
+('stud001', 'anabel', 'diana', 'anabeld@gmail.com', '0987546789', '2025-08-23', 'student', '$2y$10$aKHE/ZbZPlGOptPTyhsZMeAYCX624cNejhmnezDtU4LVWHX.eU23i');
+COMMIT;

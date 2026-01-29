@@ -124,4 +124,4 @@ The Library Management System provides a complete solution for managing books, u
 
 1. Clone the Repository
 ```bash
-git clone https://github.com/YourUsername/LibraryManagementSystem.git
+git clone https://github.com/ThamashiWickramasinghe/LibraryManagementSystem.git

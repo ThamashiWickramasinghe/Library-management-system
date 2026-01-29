@@ -122,10 +122,6 @@ The Library Management System provides a complete solution for managing books, u
 
 ## 💻 Installation
 
-Follow these steps to set up the Library Management System locally:
-
-### 1. Clone the Repository
-Open your terminal or Git Bash and run:
-
+1. Clone the Repository
 ```bash
 git clone https://github.com/YourUsername/LibraryManagementSystem.git

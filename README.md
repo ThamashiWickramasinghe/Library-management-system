@@ -67,7 +67,7 @@ The Library Management System provides a complete solution for managing books, u
 ## 🖼 Interface
 
 ### 📌 Welcome Page
-![Welcome Page](images/welcomepage.jpg)
+![welcomepage jpg](https://github.com/user-attachments/assets/81481be7-a9d0-4330-9861-6b0195e7bc7a)
 
 ### 📌 Login Page
 ![Login Page](path/to/login-page.png)

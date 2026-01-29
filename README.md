@@ -67,7 +67,7 @@ The Library Management System provides a complete solution for managing books, u
 ## 🖼 Interface
 
 ### 📌 Welcome Page
-![Login Page](C:\Users\ASUS\OneDrive\Pictures\Screenshots/welcomepage.jpg)
+![Welcome Page](images/welcomepage.jpg)
 
 ### 📌 Login Page
 ![Login Page](path/to/login-page.png)

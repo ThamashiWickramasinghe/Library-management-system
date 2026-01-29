@@ -67,33 +67,40 @@ The Library Management System provides a complete solution for managing books, u
 ## 🖼 Interface
 
 ### 📌 Welcome Page
-![welcomepage jpg](https://github.com/user-attachments/assets/81481be7-a9d0-4330-9861-6b0195e7bc7a)
+![welcomepage jpg](https://github.com/user-attachments/assets/0bde3ffb-b61b-4d3b-8640-86023521176b)
 
 ### 📌 Login Page
-![Login Page](path/to/login-page.png)
+![loginpage jpg](https://github.com/user-attachments/assets/5209f159-8ead-45a6-bcb5-cc5aa9371848)
 
 ### 📌 Librarian Dashboard
-![Librarian Dashboard](path/to/librarian-dashboard.png)
+![librarianprofile jpg](https://github.com/user-attachments/assets/ba7c23d7-61bd-49a4-8a9b-c1439c2ac117)
 
 ### 📌 Reserve and Search Book
-![Book Management](path/to/book-management.png)
+![reserveandsearchbooks jpg](https://github.com/user-attachments/assets/facfc179-cdc6-4db6-9fda-802cd61a85e3)
 
-### 📌 User Dashboard
-![Student Dashboard](path/to/student-dashboard.png)
+### 📌 User Profile
+![usersprofile jpg](https://github.com/user-attachments/assets/a802874d-5e54-4340-b05c-08d3646fbf56)
 
 ### 📌 Borrowing Books
-![Borrowing & Reservation](path/to/borrowing-reservation.png)
+![manageborrwings jpg](https://github.com/user-attachments/assets/eb2a9b66-243f-40b2-89e2-291ba4a0dbf5)
 
 ### 📌 Feedback 
-![Borrowing & Reservation](path/to/borrowing-reservation.png)
+![notifications_feedback jpg](https://github.com/user-attachments/assets/025905a1-e756-4652-81b7-2d29d0d7a397)
 
 ### 📌 Reports
-![Borrowing & Reservation](path/to/borrowing-reservation.png)
+![reports jpg](https://github.com/user-attachments/assets/f3f1c7f2-378a-40fe-8648-11b56b2ea07e)
 
 ### 📌 Notifications
-![Borrowing & Reservation](path/to/borrowing-reservation.png)
+![usernotifcations jpg](https://github.com/user-attachments/assets/32a5119d-b5b2-4d87-9f07-091190164f4d)
 
-> 💡 *Tip:* Replace `path/to/...` with your actual screenshot paths or GitHub-hosted images.
+### 📌 Manage Members
+![managemembers jpg](https://github.com/user-attachments/assets/d254c9bb-aad2-4fca-b7fe-4980d904c19f)
+
+### 📌 User Dashboard
+![userdashboard](https://github.com/user-attachments/assets/330b08c4-9030-4cdc-91c6-d15069502314)
+
+### 📌 User Feedback Form
+![user feedback ](https://github.com/user-attachments/assets/0a6181aa-5e96-4524-8173-9c7bbea37dc2)
 
 ---
 
